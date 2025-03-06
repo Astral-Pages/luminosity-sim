@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnpodf0jwk3jf"]
+
+[ext_resource type="PackedScene" uid="uid://b8msoddlavmyj" path="res://_Scenes/Space.tscn" id="1_h4uxu"]
+[ext_resource type="PackedScene" uid="uid://st3jd2mfxq5o" path="res://_Scenes/ui.tscn" id="2_rd6l1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Space" parent="." instance=ExtResource("1_h4uxu")]
+
+[node name="UI" parent="." instance=ExtResource("2_rd6l1")]
+
+[connection signal="stellar_object_absolute_magnitude_changed" from="Space" to="UI" method="update_absolute_magnitude_label"]
+[connection signal="stellar_object_apparent_magnitude_changed" from="Space" to="UI" method="update_apparent_magnitude_label"]
+[connection signal="stellar_object_distance_changed" from="Space" to="UI" method="update_distance_label"]
+[connection signal="stellar_object_luminosity_changed" from="Space" to="UI" method="update_luminosity_label"]
+[connection signal="radius_changed" from="UI" to="Space" method="on_stellar_object_radius_changed"]
+[connection signal="scale_changed" from="UI" to="Space" method="on_space_scale_changed"]
+[connection signal="temperature_changed" from="UI" to="Space" method="on_stellar_object_temperature_changed"]
